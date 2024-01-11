@@ -1,0 +1,177 @@
+:root {
+  --black: #070707ff;
+  --violet-jtc: #553555ff;
+  --eggplant: #755b69ff;
+  --cambridge-blue: #96c5b0ff;
+  --aquamarine: #adf1d2ff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(49, 56, 70);
+}
+
+/* sudoku board */
+
+.sudoku-container {
+  border-radius: 16px;
+  border: 5px solid var(--black);
+  width: 40vw;
+  height: 70vh;
+  background-color: var(--black);
+  display: grid;
+  grid-template-rows: repeat(9, 1fr);
+  gap: 3px;
+}
+
+.parent-cell {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 3px;
+}
+
+.parent-cell:first-child .child-cell:first-child {
+  border-radius: 16px 0 0 0;
+}
+
+.parent-cell:first-child .child-cell:last-child {
+  border-radius: 0 16px 0 0;
+}
+
+.parent-cell:last-child .child-cell:first-child {
+  border-radius: 0 0 0 16px;
+}
+
+.parent-cell:last-child .child-cell:last-child {
+  border-radius: 0 0 16px 0;
+}
+
+.child-cell {
+  background-color: var(--violet-jtc);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.parent-cell:first-child {
+  border-radius: 16px 16px 0 0;
+}
+
+.parent-cell:last-child {
+  border-radius: 0 0 16px 16px;
+}
+
+/* */
+
+.parent-cell:nth-child(1),
+.parent-cell:nth-child(2),
+.parent-cell:nth-child(3),
+.parent-cell:nth-child(7),
+.parent-cell:nth-child(8),
+.parent-cell:nth-child(9) {
+  .child-cell:nth-child(1),
+  .child-cell:nth-child(2),
+  .child-cell:nth-child(3),
+  .child-cell:nth-child(7),
+  .child-cell:nth-child(8),
+  .child-cell:nth-child(9) {
+    background-color: var(--aquamarine);
+  }
+}
+
+.parent-cell:nth-child(4),
+.parent-cell:nth-child(5),
+.parent-cell:nth-child(6) {
+  .child-cell:nth-child(4),
+  .child-cell:nth-child(5),
+  .child-cell:nth-child(6) {
+    background-color: var(--aquamarine);
+  }
+}
+
+.parent-cell .child-cell:hover {
+  border: solid var(--black) 5px;
+  transition: all 0.3s;
+  font-size: 2em;
+}
+
+/* number panel */
+
+.number-panel {
+  background-color: var(--black);
+  border: 5px solid var(--black);
+  border-radius: 16px;
+  height: 20vh;
+  width: 40vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.number-cell {
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.5em;
+  width: 100%;
+  height: 100%;
+  background-color: var(--violet-jtc);
+  cursor: pointer;
+  border: solid 2px var(--black);
+}
+
+.number-cell:hover {
+  background-color: var(--aquamarine);
+  border: solid var(--black) 6px;
+  transition: all 0.3s;
+  font-size: 2em;
+}
+
+.number-cell:first-child {
+  border-radius: 16px 0 0 0;
+}
+
+.number-cell:last-child {
+  border-radius: 0 0 16px 0;
+}
+
+.number-cell:nth-child(5) {
+  border-radius: 0 16px 0 0;
+}
+
+.number-cell:nth-child(6) {
+  border-radius: 0 0 0 16px;
+}
+
+/* edtable input */
+
+.selected-cell {
+  border: solid var(--eggplant) 5px;
+  transition: all 0.3s;
+  font-size: 2em;
+}
+
+/* media querys */
+
+@media only screen and (max-width: 600px) {
+  .sudoku-container {
+    width: 90vw;
+  }
+
+  .number-panel {
+    width: 90vw;
+  }
+}
