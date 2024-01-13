@@ -4,28 +4,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/104efe6595.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Sudoku</title>
 </head>
 
 <body>
-  <div class="sudoku-container"></div>
 
-  <div class="number-panel">
-    <div class="number-cell">1</div>
-    <div class="number-cell">2</div>
-    <div class="number-cell">3</div>
-    <div class="number-cell">4</div>
-    <div class="number-cell">5</div>
-    <div class="number-cell">6</div>
-    <div class="number-cell">7</div>
-    <div class="number-cell">8</div>
-    <div class="number-cell">9</div>
-    <div class="number-cell">uwu</div>
-  </div>
+  <section class="menu" id="menu">
+    <h1 class="title">Sudoku</h1>
+    <div class="buttons">
+      <button id="playGame" class="menu-button">Jugar</button>
+      <button id="options" class="menu-button">Opciones</button>
+    </div>
+    <div id="difficulty" class="difficulty hide">
+      <button id="difficultyButtonEasy" class="difficulty-button">Fácil</button>
+      <button id="difficultyButtonNormal" class="difficulty-button">Normal</button>
+      <button id="difficultyButtonHard" class="difficulty-button">Difícil</button>
+    </div>
+  </section>
+
+  <section class="game" id="game">
+    <div class="extras">
+      <div class="timer" id="timer">
+        <span class="sec" id="seconds">00</span>:<span class="min" id="minutes">00</span>
+      </div>
+      <div class="attempts">
+        <span class="hearts">❤</span><span class="hearts">❤</span><span class="hearts">❤</span>
+      </div>
+      <div class="control">
+        <button><i class="fa-solid fa-wand-magic-sparkles"></i></button>
+        <button><i class="fa-solid fa-rotate-right"></i></button>
+      </div>
+    </div>
+
+    <div class="sudoku-container"></div>
+
+    <div class="number-panel">
+      <div class="number-cell">1</div>
+      <div class="number-cell">2</div>
+      <div class="number-cell">3</div>
+      <div class="number-cell">4</div>
+      <div class="number-cell">5</div>
+      <div class="number-cell">6</div>
+      <div class="number-cell">7</div>
+      <div class="number-cell">8</div>
+      <div class="number-cell">9</div>
+      <div class="number-cell">uwu</div>
+    </div>
+  </section>
 
   <script src="./scripts/initGame.js"></script>
-  <script src="./scripts/script.js"></script>
+  <script src="./scripts/timer.js"></script>
+  <script src="./scripts/menu.js"></script>
 </body>
 
 </html>
