@@ -1,3 +1,5 @@
+import { lose } from './control.js'
+
 //GENERAR SUDOKU
 
 let board = [
@@ -223,6 +225,7 @@ function handleKeyPress(event) {
         }
       } else {
         shake(document.body)
+        lose()
       }
 
       // Don't remove the selected cell here, because we want to keep it selected
