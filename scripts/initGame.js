@@ -143,12 +143,16 @@ function fillBoard(matrix) {
 let n = board.length
 let k = 20 // Número de celdas que quieres eliminar
 
-if (fillCell(board, n) && solveSudoku(board, n)) {
-  let randomBoard = generateRandomSudoku(board, n, k)
-  fillBoard(randomBoard)
-} else {
-  console.log('No solution exists')
+export function genSudoku() {
+  if (fillCell(board, n) && solveSudoku(board, n)) {
+    let randomBoard = generateRandomSudoku(board, n, k)
+    fillBoard(randomBoard)
+  } else {
+    console.log('No solution exists')
+  }
 }
+
+genSudoku()
 
 //INTERACCION CON EL SUDOKU
 
