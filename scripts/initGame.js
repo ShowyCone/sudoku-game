@@ -140,6 +140,15 @@ function fillBoard(matrix) {
   }
 }
 
+// Delete board
+
+export function deleteBoard() {
+  const sudokuContainer = document.querySelector('.sudoku-container')
+  while (sudokuContainer.firstChild) {
+    sudokuContainer.removeChild(sudokuContainer.firstChild)
+  }
+}
+
 let n = board.length
 let k = 20 // Número de celdas que quieres eliminar
 
