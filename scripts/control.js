@@ -1,4 +1,4 @@
-import { genSudoku } from './initGame.js'
+import { genSudoku, deleteBoard } from './initGame.js'
 
 const buttonsControl = {
   resolve: document.getElementById('resolve'),
@@ -6,7 +6,8 @@ const buttonsControl = {
 }
 
 buttonsControl.reset.addEventListener('click', () => {
+  deleteBoard()
   genSudoku()
 })
 
-buttonsControl.reset.addEventListener('click', () => {})
+buttonsControl.resolve.addEventListener('click', () => {})
