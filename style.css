@@ -129,6 +129,7 @@ body {
   position: fixed;
   transform: translateX(180%);
   transition: 0.2s transform;
+  user-select: none;
 }
 
 .goLeftGame {
