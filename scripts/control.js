@@ -1,6 +1,6 @@
-import { genSudoku, deleteBoard } from './initGame.js'
-import { initInteraction } from './interaction.js'
+import { playGame, deleteBoard } from './fillSudoku.js'
 import { resetTimer } from './timer.js'
+import { initInteraction } from './interaction.js'
 
 const control = {
   resolve: document.getElementById('resolve'),
@@ -10,7 +10,7 @@ const control = {
 
 control.reset.addEventListener('click', () => {
   deleteBoard()
-  genSudoku()
+  playGame()
   initInteraction()
   resetTimer()
   resetHearts()

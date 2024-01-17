@@ -1,7 +1,8 @@
 import { lose } from './control.js'
 import { shake } from './effects.js'
-import { isSafe } from './initGame.js'
-import { board } from './initGame.js'
+import { isValid } from './generateSudoku.js'
+import { sudokuToResolve } from './fillSudoku.js'
+import { pausedTimer } from './timer.js'
 
 let firstTimeEvent = true
 export function initInteraction() {
@@ -31,7 +32,7 @@ export function initInteraction() {
         }
         let temp = board[i][j]
         board[i][j] = 0
-        if (!isSafe(board, i, j, temp)) {
+        if (!isValid(board, i, j, temp)) {
           return false
         }
         board[i][j] = temp
@@ -53,12 +54,13 @@ export function initInteraction() {
         let row = parseInt(id[0])
         let col = parseInt(id[1])
 
-        if (isSafe(board, row, col, parseInt(keyPressed))) {
+        if (isValid(sudokuToResolve, row, col, parseInt(keyPressed))) {
           alert('¡Número correcto!')
-          board[row][col] = parseInt(keyPressed)
+          sudokuToResolve[row][col] = parseInt(keyPressed)
           selectedCell.textContent = keyPressed
-          if (checkWin(board)) {
-            console.log('¡Has ganado!')
+          if (checkWin(sudokuToResolve)) {
+            pausedTimer()
+            alert('¡Has ganado!')
           }
         } else {
           shake(document.body)

@@ -37,3 +37,7 @@ export function resetTimer() {
   document.getElementById('minutes').innerHTML = '00'
   initTimer()
 }
+
+export function pausedTimer() {
+  clearInterval(timer)
+}
