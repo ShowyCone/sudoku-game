@@ -1,9 +1,10 @@
 import { generateSudoku } from './generateSudoku.js'
 
 export let sudokuToResolve = []
-const sudokuResolved = generateSudoku()
+let sudokuResolved = []
 
 export function playGame() {
+  sudokuResolved = generateSudoku()
   sudokuToResolve = removeCells(sudokuResolved, 5)
   console.table(sudokuToResolve)
   console.table(sudokuResolved)
