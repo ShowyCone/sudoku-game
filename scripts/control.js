@@ -1,4 +1,6 @@
 import { genSudoku, deleteBoard } from './initGame.js'
+import { initInteraction } from './interaction.js'
+import { resetTimer } from './timer.js'
 
 const control = {
   resolve: document.getElementById('resolve'),
@@ -11,6 +13,8 @@ let attempts = 2
 control.reset.addEventListener('click', () => {
   deleteBoard()
   genSudoku()
+  initInteraction()
+  resetTimer()
 })
 
 control.resolve.addEventListener('click', () => {})
