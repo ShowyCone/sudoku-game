@@ -1,4 +1,4 @@
-import { playGame, deleteBoard } from './fillSudoku.js'
+import { playGame, deleteBoard, resolveSudoku } from './fillSudoku.js'
 import { resetTimer } from './timer.js'
 import { initInteraction } from './interaction.js'
 
@@ -16,7 +16,10 @@ control.reset.addEventListener('click', () => {
   resetHearts()
 })
 
-control.resolve.addEventListener('click', () => {})
+control.resolve.addEventListener('click', () => {
+  deleteBoard()
+  resolveSudoku()
+})
 
 let attempts = 2
 export const lose = () => {

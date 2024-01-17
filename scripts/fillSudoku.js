@@ -1,9 +1,9 @@
 import { generateSudoku } from './generateSudoku.js'
 
 export let sudokuToResolve = []
+const sudokuResolved = generateSudoku()
 
 export function playGame() {
-  const sudokuResolved = generateSudoku()
   sudokuToResolve = removeCells(sudokuResolved, 5)
   console.table(sudokuToResolve)
   console.table(sudokuResolved)
@@ -11,6 +11,10 @@ export function playGame() {
 }
 
 playGame()
+
+export function resolveSudoku() {
+  fillBoard(sudokuResolved)
+}
 
 function copySudoku(grid) {
   // Crea una copia de la matriz original
