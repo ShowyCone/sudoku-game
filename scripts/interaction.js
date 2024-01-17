@@ -78,7 +78,7 @@ export function initInteraction() {
     numberCell.addEventListener('click', handleClick)
   })
 
-  document.addEventListener('keydown', handleKeyPress)
+  document.addEventListener('keyup', handleKeyPress)
 }
 
 initInteraction()
