@@ -3,6 +3,7 @@ import { shake } from './effects.js'
 import { isSafe } from './initGame.js'
 import { board } from './initGame.js'
 
+let firstTimeEvent = true
 export function initInteraction() {
   const numberCells = document.querySelectorAll('.child-cell')
   const NUMBER_OPTIONS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -41,10 +42,10 @@ export function initInteraction() {
 
   function handleKeyPress(event) {
     const keyPressed = event.key
-    console.log(`Tecla presionada: ${keyPressed}`) // Agrega esta línea
+    // console.log(`Tecla presionada: ${keyPressed}`) // Agrega esta línea
 
     if (NUMBER_OPTIONS.includes(keyPressed) && selectedCell) {
-      console.log('Tecla presionada es un número y hay una celda seleccionada') // Agrega esta línea
+      // console.log('Tecla presionada es un número y hay una celda seleccionada') // Agrega esta línea
 
       // Check if the selected cell has an ID in the correct format
       if (selectedCell.id.match(/^[0-8]-[0-8]$/)) {
@@ -78,7 +79,10 @@ export function initInteraction() {
     numberCell.addEventListener('click', handleClick)
   })
 
-  document.addEventListener('keyup', handleKeyPress)
+  if (firstTimeEvent) {
+    document.addEventListener('keyup', handleKeyPress)
+    firstTimeEvent = false
+  }
 }
 
 initInteraction()

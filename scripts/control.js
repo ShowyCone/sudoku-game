@@ -8,17 +8,17 @@ const control = {
   hearts: document.querySelectorAll('.hearts'),
 }
 
-let attempts = 2
-
 control.reset.addEventListener('click', () => {
   deleteBoard()
   genSudoku()
   initInteraction()
   resetTimer()
+  resetHearts()
 })
 
 control.resolve.addEventListener('click', () => {})
 
+let attempts = 2
 export const lose = () => {
   if (attempts >= 0) {
     control.hearts[attempts].innerHTML = '🖤'
@@ -27,5 +27,12 @@ export const lose = () => {
 
   if (attempts === -1) {
     alert('f')
+  }
+}
+
+const resetHearts = () => {
+  attempts = 2
+  for (let index = 0; index < control.hearts.length; index++) {
+    control.hearts[index].innerHTML = '❤'
   }
 }
