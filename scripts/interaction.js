@@ -8,8 +8,10 @@ let firstTimeEvent = true
 export function initInteraction() {
   const numberCells = document.querySelectorAll('.child-cell')
   const NUMBER_OPTIONS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  const numberButtons = document.querySelectorAll('.number-cell')
 
   let selectedCell = null
+
   function handleClick(event) {
     if (this.textContent !== '') {
       return
@@ -23,32 +25,13 @@ export function initInteraction() {
     selectedCell.classList.add('selected-cell')
   }
 
-  function checkWin(board) {
-    for (let i = 0; i < board.length; i++) {
-      for (let j = 0; j < board[i].length; j++) {
-        let cell = board[i][j]
-        if (cell === 0 || cell === '') {
-          return false
-        }
-        let temp = board[i][j]
-        board[i][j] = 0
-        if (!isValid(board, i, j, temp)) {
-          return false
-        }
-        board[i][j] = temp
-      }
-    }
-    return true
+  function handleNumberClick(event) {
+    const keyPressed = this.textContent
+    handleKeyPress(keyPressed)
   }
 
-  function handleKeyPress(event) {
-    const keyPressed = event.key
-    // console.log(`Tecla presionada: ${keyPressed}`) // Agrega esta línea
-
+  function handleKeyPress(keyPressed) {
     if (NUMBER_OPTIONS.includes(keyPressed) && selectedCell) {
-      // console.log('Tecla presionada es un número y hay una celda seleccionada') // Agrega esta línea
-
-      // Check if the selected cell has an ID in the correct format
       if (selectedCell.id.match(/^[0-8]-[0-8]$/)) {
         let id = selectedCell.id.split('-')
         let row = parseInt(id[0])
@@ -66,13 +49,8 @@ export function initInteraction() {
           shake(document.body)
           lose()
         }
-
-        // Don't remove the selected cell here, because we want to keep it selected
-        // so that the user can enter another number in the same cell if they want to
       } else {
-        console.log(
-          'El formato de la ID de la celda seleccionada no es correcto'
-        )
+        console.log('El formato de la ID de la celda seleccionada no es correcto')
       }
     }
   }
@@ -81,8 +59,14 @@ export function initInteraction() {
     numberCell.addEventListener('click', handleClick)
   })
 
+  numberButtons.forEach((numberButton) => {
+    numberButton.addEventListener('click', handleNumberClick)
+  })
+
   if (firstTimeEvent) {
-    document.addEventListener('keyup', handleKeyPress)
+    document.addEventListener('keyup', (event) => {
+      handleKeyPress(event.key)
+    })
     firstTimeEvent = false
   }
 }
