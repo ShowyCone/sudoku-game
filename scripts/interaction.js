@@ -6,6 +6,7 @@ import { pausedTimer } from './timer.js'
 
 let firstTimeEvent = true
 export function initInteraction() {
+  console.log(sudokuToResolve)
   const numberCells = document.querySelectorAll('.child-cell')
   const NUMBER_OPTIONS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -53,9 +54,19 @@ export function initInteraction() {
         let id = selectedCell.id.split('-')
         let row = parseInt(id[0])
         let col = parseInt(id[1])
-
+        console.log(`
+        row: ${row} 
+        col: ${col} 
+        id: ${id}
+        es correcto?: ${isValid(
+          sudokuToResolve,
+          row,
+          col,
+          parseInt(keyPressed)
+        )}
+        `)
         if (isValid(sudokuToResolve, row, col, parseInt(keyPressed))) {
-          alert('¡Número correcto!')
+          console.log('¡Número correcto!')
           sudokuToResolve[row][col] = parseInt(keyPressed)
           selectedCell.textContent = keyPressed
           if (checkWin(sudokuToResolve)) {
@@ -63,6 +74,8 @@ export function initInteraction() {
             alert('¡Has ganado!')
           }
         } else {
+          console.log('¡Número incorrecto!')
+          console.table(sudokuToResolve)
           shake(document.body)
           lose()
         }
@@ -86,5 +99,3 @@ export function initInteraction() {
     firstTimeEvent = false
   }
 }
-
-initInteraction()

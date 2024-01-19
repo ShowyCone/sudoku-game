@@ -1,3 +1,6 @@
+import { difficultyLevel } from './playByDifficulty.js'
+import { initInteraction } from './interaction.js'
+
 const playGameButton = document.getElementById('playGame')
 const difficulty = document.getElementById('difficulty')
 const difficultyButtonEasy = document.getElementById('difficultyButtonEasy')
@@ -16,6 +19,26 @@ playGameButton.addEventListener('click', () => {
 difficultyButtonEasy.addEventListener('click', () => {
   menu.classList.add('goLeftMenu')
   setTimeout(() => {
+    difficultyLevel(1)
+    initInteraction()
+    game.classList.add('goLeftGame')
+  }, 500)
+})
+
+difficultyButtonNormal.addEventListener('click', () => {
+  menu.classList.add('goLeftMenu')
+  setTimeout(() => {
+    difficultyLevel(2)
+    initInteraction()
+    game.classList.add('goLeftGame')
+  }, 500)
+})
+
+difficultyButtonHard.addEventListener('click', () => {
+  menu.classList.add('goLeftMenu')
+  setTimeout(() => {
+    difficultyLevel(3)
+    initInteraction()
     game.classList.add('goLeftGame')
   }, 500)
 })

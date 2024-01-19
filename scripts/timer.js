@@ -1,7 +1,7 @@
 let seconds = 0
 let minutes = 0
 let timer
-function initTimer() {
+export function initTimer() {
   const cells = document.querySelectorAll('.child-cell')
 
   cells.forEach((cell) => {
@@ -26,8 +26,6 @@ function initTimer() {
     }, 1000)
   }
 }
-
-initTimer()
 
 export function resetTimer() {
   clearInterval(timer)
