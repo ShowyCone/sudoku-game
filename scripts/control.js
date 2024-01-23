@@ -1,4 +1,4 @@
-import { playGame, deleteBoard, resolveSudoku } from './fillSudoku.js'
+import { deleteBoard, resolveSudoku } from './fillSudoku.js'
 import { initInteraction } from './interaction.js'
 import { difficultyLevel, difficultySelected } from './playByDifficulty.js'
 import { backMenu } from './menu.js'

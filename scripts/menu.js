@@ -8,6 +8,8 @@ const difficultyButtonNormal = document.getElementById('difficultyButtonNormal')
 const difficultyButtonHard = document.getElementById('difficultyButtonHard')
 const menu = document.getElementById('menu')
 const game = document.getElementById('game')
+const creditsButton = document.getElementById('creditsButton')
+const credits = document.getElementById('credits')
 
 playGameButton.addEventListener('click', () => {
   difficulty.classList.remove('hide')
@@ -49,3 +51,8 @@ export function backMenu() {
   menu.classList.remove('goLeftMenu')
   game.classList.remove('goLeftGame')
 }
+
+creditsButton.addEventListener('click', () => {
+  menu.classList.add('goLeftMenu')
+  credits.classList.add('goTopCredits')
+})

@@ -38,7 +38,6 @@ export function initInteraction() {
         selectedCell.textContent = numberClicked
         if (checkWin(sudokuToResolve)) {
           pausedTimer()
-          modal(modalProperties.win)
         }
       } else {
         shake(document.body)
@@ -82,7 +81,7 @@ export function initInteraction() {
           selectedCell.textContent = keyPressed
           if (checkWin(sudokuToResolve)) {
             pausedTimer()
-            alert('¡Has ganado!')
+            modal(modalProperties.win)
           }
         } else {
           shake(document.body)
