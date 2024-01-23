@@ -1,11 +1,13 @@
 import { playGame, deleteBoard, resolveSudoku } from './fillSudoku.js'
 import { initInteraction } from './interaction.js'
 import { difficultyLevel, difficultySelected } from './playByDifficulty.js'
+import { backMenu } from './menu.js'
 
 const control = {
   resolve: document.getElementById('resolve'),
   reset: document.getElementById('reset'),
   hearts: document.querySelectorAll('.hearts'),
+  back: document.getElementById('backMenu'),
 }
 
 control.reset.addEventListener('click', () => {
@@ -38,3 +40,8 @@ const resetHearts = () => {
     control.hearts[index].innerHTML = '❤'
   }
 }
+
+control.back.addEventListener('click', () => {
+  backMenu()
+  deleteBoard()
+})

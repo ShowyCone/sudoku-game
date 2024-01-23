@@ -42,3 +42,10 @@ difficultyButtonHard.addEventListener('click', () => {
     game.classList.add('goLeftGame')
   }, 500)
 })
+
+export function backMenu() {
+  difficulty.classList.add('hide')
+  difficulty.classList.remove('difficulty-open')
+  menu.classList.remove('goLeftMenu')
+  game.classList.remove('goLeftGame')
+}
