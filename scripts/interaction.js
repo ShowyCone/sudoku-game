@@ -24,6 +24,28 @@ export function initInteraction() {
     selectedCell.classList.add('selected-cell')
   }
 
+  function handleNumberClick(event) {
+    const numberClicked = event.target.textContent
+
+    if (NUMBER_OPTIONS.includes(numberClicked) && selectedCell) {
+      let id = selectedCell.id.split('-')
+      let row = parseInt(id[0])
+      let col = parseInt(id[1])
+
+      if (isValid(sudokuToResolve, row, col, parseInt(numberClicked))) {
+        sudokuToResolve[row][col] = parseInt(numberClicked)
+        selectedCell.textContent = numberClicked
+        if (checkWin(sudokuToResolve)) {
+          pausedTimer()
+          alert('¡Has ganado!')
+        }
+      } else {
+        shake(document.body)
+        lose()
+      }
+    }
+  }
+
   function checkWin(board) {
     for (let i = 0; i < board.length; i++) {
       for (let j = 0; j < board[i].length; j++) {
@@ -89,6 +111,11 @@ export function initInteraction() {
       }
     }
   }
+
+  const numberPanelCells = document.querySelectorAll('.number-cell')
+  numberPanelCells.forEach((numberCell) => {
+    numberCell.addEventListener('click', handleNumberClick)
+  })
 
   numberCells.forEach((numberCell) => {
     numberCell.addEventListener('click', handleClick)
