@@ -520,6 +520,25 @@ body {
   transform: translateY(0px);
 }
 
+.back-credits {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: solid var(--black) 4px;
+  border-radius: 12px 0 0 0;
+}
+
+.back-credits button {
+  border: solid var(--black) 4px;
+  border-radius: 12px 0 0 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
 /* media querys */
 
 @media only screen and (max-width: 850px) {
