@@ -40,3 +40,4 @@ const resetHearts = () => {
     control.hearts[index].innerHTML = '❤'
   }
 }
+
