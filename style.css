@@ -286,12 +286,23 @@ body {
 }
 
 .timer,
-.attempts,
-.control {
+.config {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+}
+
+.timer span {
+  font-size: 1.3em;
+}
+
+.attempts,
+.control,
+.control1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
   height: 40px;
   background-color: var(--violet-jtc);
   border-right: solid 5px var(--black);
@@ -300,7 +311,9 @@ body {
   border-radius: 16px 16px 0 0;
 }
 
-.timer {
+.control,
+.control1 {
+  width: 30%;
 }
 
 .sec {
@@ -327,12 +340,12 @@ body {
   font-size: 1.25em;
 }
 
-.control button:first-child {
+.control button:nth-child(1) {
   border-radius: 14px 0 0 0;
   border-right: 2.5px solid var(--black);
 }
 
-.control button:last-child {
+.control button:nth-child(2) {
   border-radius: 0 14px 0 0;
   border-left: 2.5px solid var(--black);
 }
@@ -340,6 +353,29 @@ body {
 .control button:hover {
   background-color: var(--eggplant);
   cursor: pointer;
+}
+
+.control1 button,
+.control1 div {
+  width: 25%;
+  height: 100%;
+  border: none;
+  background-color: var(--violet-jtc);
+  font-size: 1.25em;
+}
+
+.control1 div {
+  width: 75%;
+}
+
+.control1 button {
+  border-radius: 14px 0 0 0;
+  border-right: 2.5px solid var(--black);
+}
+
+.control1 div {
+  border-radius: 0 14px 0 0;
+  border-left: 2.5px solid var(--black);
 }
 
 /* media querys */
@@ -354,6 +390,7 @@ body {
 
   .sudoku-container {
     width: 90vw;
+    border-radius: 0;
   }
 
   .number-panel {
@@ -370,15 +407,21 @@ body {
 
   .timer,
   .attempts,
-  .control {
+  .control,
+  .control1 {
     border-radius: 0;
+    width: 33.33%;
   }
 
-  .timer {
+  .control1 {
     border-radius: 16px 0 0 0;
   }
 
   .control {
     border-radius: 0 16px 0 0;
+  }
+
+  .timer span {
+    font-size: 1em;
   }
 }
