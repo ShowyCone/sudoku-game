@@ -1,5 +1,4 @@
 import { playGame, deleteBoard, resolveSudoku } from './fillSudoku.js'
-import { resetTimer } from './timer.js'
 import { initInteraction } from './interaction.js'
 import { difficultyLevel, difficultySelected } from './playByDifficulty.js'
 
@@ -13,7 +12,6 @@ control.reset.addEventListener('click', () => {
   deleteBoard()
   difficultyLevel(difficultySelected)
   initInteraction()
-  resetTimer()
   resetHearts()
 })
 
@@ -40,4 +38,3 @@ const resetHearts = () => {
     control.hearts[index].innerHTML = '❤'
   }
 }
-
