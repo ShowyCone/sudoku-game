@@ -1,5 +1,5 @@
 import { playGame } from './fillSudoku.js'
-import { initTimer } from './timer.js'
+import { resetTimer } from './timer.js'
 
 const difficulties = {
   1: 15,
@@ -17,5 +17,5 @@ export const difficultyLevel = (level = 1) => {
   difficultySelected = level
   // console.log(difficulties[level])
   playGame(difficulties[level])
-  initTimer()
+  resetTimer()
 }
