@@ -350,7 +350,8 @@ body {
   border-left: 2.5px solid var(--black);
 }
 
-.control button:hover {
+.control button:hover,
+.control1 button:hover {
   background-color: var(--eggplant);
   cursor: pointer;
 }
