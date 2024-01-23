@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/104efe6595.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="./assets/sudoku.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
@@ -61,13 +62,9 @@
     </div>
   </section>
 
-  <div class="modal-background">
-    <div class="modal-container">
-      <h3 class="modal-title">¿Desea confirmar?</h3>
-      <div class="modal-container-buttons">
-        <button class="modal-confirm">si</button>
-        <button class="modal-decline">no</button>
-      </div>
+  <div class="modal-background hide" id="modal">
+    <div class="modal-container" id="modalContainer">
+      <div class="modal-container-buttons" id="modalContainerButtons"></div>
     </div>
   </div>
 
@@ -76,6 +73,7 @@
   <script type="module" src="./scripts/control.js"></script>
   <script type="module" src="./scripts/interaction.js"></script>
   <script type="module" src="./scripts/timer.js"></script>
+  <script type="module" src="./scripts/windowModal.js"></script>
 
 </body>
 
