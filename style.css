@@ -426,3 +426,56 @@ body {
     font-size: 1em;
   }
 }
+
+/* window modal */
+.modal-background {
+  position: absolute;
+  /* display: flex; */
+  display: none;
+  height: 100%;
+  background-color: #ffffff69;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  z-index: 1000;
+  background-color: blue;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.3em;
+}
+
+.modal-container-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-confirm,
+.modal-decline {
+  border-radius: 16px;
+  width: 80px;
+  height: 50px;
+  border: none;
+}
+
+.modal-confirm {
+  background-color: green;
+}
+
+.modal-decline {
+  background-color: red;
+}
