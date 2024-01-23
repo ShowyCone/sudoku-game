@@ -1,5 +1,4 @@
 const modalControl = {
-  test: document.getElementById('options'),
   containerButtons: document.getElementById('modalContainerButtons'),
   modal: document.getElementById('modal'),
   modalContainer: document.getElementById('modalContainer'),
@@ -7,6 +6,8 @@ const modalControl = {
 
 /**
  * Creates a modal element with optional title and buttons
+ * @param {HTMLElement} buttonToOpen - The HTML element that opens the modal
+ * @param {Object} param0 - The object containing the modal properties
  * @param {String} [param0.title] - The title of the modal
  * @param {Object} [param0.button] - The object containing the button properties
  * @param {String[]} [param0.button.text] - The array of texts for the buttons
@@ -28,11 +29,11 @@ const modalControl = {
  * }
  * modal(objectTest)
  */
-export function modal({ title, button }) {
+export function modal(buttonToOpen, { title, button }) {
   title ? createTitle(title) : ''
   button ? createButtons(button) : ''
 
-  modalControl.test.addEventListener('click', () => {
+  buttonToOpen.addEventListener('click', () => {
     modalControl.modal.classList.remove('hide')
   })
 }
