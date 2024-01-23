@@ -2,8 +2,10 @@ import { playGame, deleteBoard, resolveSudoku } from './fillSudoku.js'
 import { initInteraction } from './interaction.js'
 import { difficultyLevel, difficultySelected } from './playByDifficulty.js'
 import { backMenu } from './menu.js'
+import { modal } from './windowModal.js'
+import { modalProperties } from './modalControl.js'
 
-const control = {
+export const control = {
   resolve: document.getElementById('resolve'),
   reset: document.getElementById('reset'),
   hearts: document.querySelectorAll('.hearts'),
@@ -12,16 +14,31 @@ const control = {
 }
 
 control.reset.addEventListener('click', () => {
+  modal(modalProperties.reset)
+})
+export function reset() {
   deleteBoard()
   difficultyLevel(difficultySelected)
   initInteraction()
   resetHearts()
-})
+}
 
 control.resolve.addEventListener('click', () => {
+  modal(modalProperties.resolve)
+})
+export function resolve() {
   deleteBoard()
   resolveSudoku()
+}
+
+control.back.addEventListener('click', () => {
+  modal(modalProperties.goBackMenu)
 })
+export function goBackMenu() {
+  backMenu()
+  deleteBoard()
+  resetHearts()
+}
 
 let icon = control.fullscreen.querySelector('i')
 control.fullscreen.addEventListener('click', function () {
@@ -49,7 +66,7 @@ export const lose = () => {
   }
 
   if (attempts === -1) {
-    alert('f')
+    modal(modalProperties.lose)
   }
 }
 
@@ -59,8 +76,3 @@ const resetHearts = () => {
     control.hearts[index].innerHTML = '❤'
   }
 }
-
-control.back.addEventListener('click', () => {
-  backMenu()
-  deleteBoard()
-})

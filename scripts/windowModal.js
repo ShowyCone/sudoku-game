@@ -6,7 +6,6 @@ const modalControl = {
 
 /**
  * Creates a modal element with optional title and buttons
- * @param {HTMLElement} buttonToOpen - The HTML element that opens the modal
  * @param {Object} param0 - The object containing the modal properties
  * @param {String} [param0.title] - The title of the modal
  * @param {Object} [param0.button] - The object containing the button properties
@@ -29,13 +28,12 @@ const modalControl = {
  * }
  * modal(objectTest)
  */
-export function modal(buttonToOpen, { title, button }) {
+export function modal({ title, button }) {
+  deleteTitle()
   title ? createTitle(title) : ''
   button ? createButtons(button) : ''
 
-  buttonToOpen.addEventListener('click', () => {
-    modalControl.modal.classList.remove('hide')
-  })
+  modalControl.modal.classList.remove('hide')
 }
 
 function createTitle(title) {
@@ -71,13 +69,27 @@ function createButtons({
       this.style.backgroundColor = color[i]
     })
 
-    console.log(i, toClose)
     button.addEventListener('click', eventFunc[i])
-    i === toClose ? button.addEventListener('click', close) : ''
-    modalControl.containerButtons.appendChild(button)
+    button.addEventListener('click', close)
+    if (i === 0) {
+      modalControl.containerButtons.innerHTML = ''
+      modalControl.containerButtons.appendChild(button)
+    } else {
+      modalControl.containerButtons.appendChild(button)
+    }
   }
 }
 
 function close() {
   modalControl.modal.classList.add('hide')
+}
+
+function deleteTitle() {
+  const modalContainer = modalControl.modalContainer
+  const childs = modalContainer.childNodes
+  for (let i = 0; i < childs.length; i++) {
+    if (childs[i].nodeName === 'H3') {
+      modalContainer.removeChild(childs[i])
+    }
+  }
 }

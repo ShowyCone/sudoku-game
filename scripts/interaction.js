@@ -3,10 +3,11 @@ import { shake } from './effects.js'
 import { isValid } from './generateSudoku.js'
 import { sudokuToResolve } from './fillSudoku.js'
 import { pausedTimer } from './timer.js'
+import { modalProperties } from './modalControl.js'
+import { modal } from './windowModal.js'
 
 let firstTimeEvent = true
 export function initInteraction() {
-  console.log(sudokuToResolve)
   const numberCells = document.querySelectorAll('.child-cell')
   const NUMBER_OPTIONS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -37,7 +38,7 @@ export function initInteraction() {
         selectedCell.textContent = numberClicked
         if (checkWin(sudokuToResolve)) {
           pausedTimer()
-          alert('¡Has ganado!')
+          modal(modalProperties.win)
         }
       } else {
         shake(document.body)
@@ -66,7 +67,6 @@ export function initInteraction() {
 
   function handleKeyPress(event) {
     const keyPressed = event.key
-    // console.log(`Tecla presionada: ${keyPressed}`) // Agrega esta línea
 
     if (NUMBER_OPTIONS.includes(keyPressed) && selectedCell) {
       // console.log('Tecla presionada es un número y hay una celda seleccionada') // Agrega esta línea
@@ -76,19 +76,8 @@ export function initInteraction() {
         let id = selectedCell.id.split('-')
         let row = parseInt(id[0])
         let col = parseInt(id[1])
-        console.log(`
-        row: ${row} 
-        col: ${col} 
-        id: ${id}
-        es correcto?: ${isValid(
-          sudokuToResolve,
-          row,
-          col,
-          parseInt(keyPressed)
-        )}
-        `)
+
         if (isValid(sudokuToResolve, row, col, parseInt(keyPressed))) {
-          console.log('¡Número correcto!')
           sudokuToResolve[row][col] = parseInt(keyPressed)
           selectedCell.textContent = keyPressed
           if (checkWin(sudokuToResolve)) {
@@ -96,8 +85,6 @@ export function initInteraction() {
             alert('¡Has ganado!')
           }
         } else {
-          console.log('¡Número incorrecto!')
-          console.table(sudokuToResolve)
           shake(document.body)
           lose()
         }
@@ -105,9 +92,6 @@ export function initInteraction() {
         // Don't remove the selected cell here, because we want to keep it selected
         // so that the user can enter another number in the same cell if they want to
       } else {
-        console.log(
-          'El formato de la ID de la celda seleccionada no es correcto'
-        )
       }
     }
   }
