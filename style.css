@@ -1,7 +1,7 @@
 :root {
   --black: #070707ff;
-  --violet-jtc: #553555ff;
-  --eggplant: #755b69ff;
+  --violet-jtc: #9c8cfc;
+  --eggplant: #9578c5;
   --cambridge-blue: #96c5b0ff;
   --aquamarine: #adf1d2ff;
   --text-shadow-border: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
@@ -17,6 +17,16 @@ html {
   overflow: hidden;
 }
 
+.inner {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+
+.inner img {
+  height: 100vh;
+}
+
 body {
   overflow: hidden;
   display: grid;
@@ -24,8 +34,7 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background-color: #001f3f;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23800080'/%3E%3Cstop offset='1' stop-color='%23001F3F'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23948E99' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23948E99' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #13111f;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -553,6 +562,11 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+  }
+
+  .menu {
+    width: 90%;
+    height: 60%;
   }
 
   .sudoku-container {

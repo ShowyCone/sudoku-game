@@ -4,6 +4,7 @@ import { difficultyLevel, difficultySelected } from './playByDifficulty.js'
 import { backMenu } from './menu.js'
 import { modal } from './windowModal.js'
 import { modalProperties } from './modalControl.js'
+import { pausedTimer } from './timer.js'
 
 export const control = {
   resolve: document.getElementById('resolve'),
@@ -27,6 +28,7 @@ control.resolve.addEventListener('click', () => {
   modal(modalProperties.resolve)
 })
 export function resolve() {
+  pausedTimer()
   deleteBoard()
   resolveSudoku()
 }
