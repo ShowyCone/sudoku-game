@@ -537,6 +537,12 @@ body {
   height: 100%;
   border: none;
   outline: none;
+  background-color: var(--aquamarine);
+}
+
+.back-credits button:hover {
+  background-color: var(--cambridge-blue);
+  cursor: pointer;
 }
 
 /* media querys */
@@ -589,6 +595,32 @@ body {
   .credits,
   .credits-container {
     width: 100%;
-    font-size: 0.8em;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+  }
+
+  .github-credits {
+    font-size: 2.3em;
+  }
+
+  .ugma-credits {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+  }
+
+  .credits-container {
+    grid-template-columns: repeat(3, 32.4%);
+  }
+
+  .back-credits button,
+  .back-credits {
+    border-radius: 0 0 16px 0;
+  }
+
+  .credits-cells {
+    font-size: 0.5em;
   }
 }
