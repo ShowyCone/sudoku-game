@@ -7,11 +7,13 @@ import { modalProperties } from './modalControl.js'
 import { modal } from './windowModal.js'
 
 let firstTimeEvent = true
+let selectedCell = null
 export function initInteraction() {
   const numberCells = document.querySelectorAll('.child-cell')
   const NUMBER_OPTIONS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-  let selectedCell = null
+  selectedCell = null
+
   function handleClick(event) {
     if (this.textContent !== '') {
       return
